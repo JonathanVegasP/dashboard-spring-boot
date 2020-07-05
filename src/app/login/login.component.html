@@ -1,0 +1,44 @@
+<div class="gradient-color">
+  <div fxLayout="column" fxFlex.lt-sm="0%" fxFlex="25%"></div>
+  <form
+    #form="ngForm"
+    fxLayout="column"
+    class="fill-height"
+    fxLayoutAlign="center"
+    fxFlex.lt-sm="100%"
+    fxFlex="50%"
+    (ngSubmit)="onSubmit(form)"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input
+        name="email"
+        matInput
+        [(ngModel)]="user.email"
+        #email="ngModel"
+        required
+      />
+      <mat-error *ngIf="email.hasError('required')"
+        >Digite o seu e-mail</mat-error
+      >
+    </mat-form-field>
+    <div class="s-12"></div>
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input
+        type="password"
+        name="password"
+        matInput
+        [(ngModel)]="user.password"
+        #password="ngModel"
+        required
+      />
+      <mat-error *ngIf="password.hasError('required')"
+        >Digite a sua senha</mat-error
+      >
+    </mat-form-field>
+    <div class="s-24"></div>
+    <button mat-raised-button color="primary" type="submit">Entrar</button>
+  </form>
+  <div fxLayout="column" fxFlex.lt-sm="0%" fxFlex="25%"></div>
+</div>
